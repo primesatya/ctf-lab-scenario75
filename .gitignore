@@ -1,2 +1,5 @@
 app_backup.js
-mitm_mcp_traffic.db
+*.db
+npm_debug.log
+.env
+/node_modules
