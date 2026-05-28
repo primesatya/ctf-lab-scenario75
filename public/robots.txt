@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /api/verify-mfa
+Disallow: /admin
+Allow: /
