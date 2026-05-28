@@ -1,0 +1,25 @@
+services:
+  app:
+    build: .
+    container_name: ctf_lab_app
+    ports:
+      - "3075:3075"
+    volumes:
+      - /opt/admin/logs:/opt/admin/logs
+    restart: unless-stopped
+
+  ssh:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: ctf_lab_ssh
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jakarta
+      - USER_NAME=analyst
+      - USER_PASSWORD=blue_team_rocks
+      - PASSWORD_ACCESS=true
+    ports:
+      - "2275:2222"
+    volumes:
+      - /opt/admin/logs:/opt/admin/logs:ro
+    restart: unless-stopped

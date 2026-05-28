@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /api/verify-mfa
+Disallow: /dashboard
 Disallow: /admin
 Allow: /
