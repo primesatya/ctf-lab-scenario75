@@ -79,5 +79,28 @@
       <button type="submit">&gt;&gt; LOGIN</button>
     </form>
   </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, password: password })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.status === 'mfa_required') {
+          window.location.href = '/mfa';
+        } else {
+          alert('Login failed: ' + (data.error || 'Unknown error'));
+        }
+      })
+      .catch(function(err) {
+        alert('Error: ' + err.message);
+      });
+    });
+  </script>
 </body>
 </html>

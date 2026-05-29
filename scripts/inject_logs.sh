@@ -51,7 +51,7 @@ EOF
 
 # Cookie exfiltration — X-Forwarded-For contains Base64 encoded flag
 cat >> "$ACCESS_LOG" << 'EOF'
-10.10.14.50 - - [29/May/2026:18:52:10 +0700] "GET /collect?data=stolen HTTP/1.1" 200 0 "UEhBTlRPTUdSSUR7QkxVRV9MMGdfSHVudDNyX000c3Qzcn0" "Mozilla/5.0 (Kali Linux)" "X-Forwarded-For: UEhBTlRPTUdSSUR7QkxVRV9MMGdfSHVudDNyX000c3Qzcn0"
+10.10.14.50 - - [29/May/2026:18:52:10 +0700] "GET /collect?data=stolen HTTP/1.1" 200 0 "U0NFTkFSSU83NXtCTFVFX0wwR19IVW50M3JfTTRzdDN9" "Mozilla/5.0 (Kali Linux)" "X-Forwarded-For: U0NFTkFSSU83NXtCTFVFX0wwR19IVW50M3JfTTRzdDN9"
 EOF
 
 # More baseline traffic after attack

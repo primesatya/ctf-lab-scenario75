@@ -3,3 +3,4 @@ app_backup.js
 npm_debug.log
 .env
 /node_modules
+cookies.txt
