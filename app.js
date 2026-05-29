@@ -31,6 +31,12 @@ function wafMiddleware(req, res, next) {
       message: 'Script tags are not allowed'
     });
   }
+  if (/document\.cookie/i.test(body)) {
+    return res.status(403).json({
+      error: 'Malicious content detected',
+      message: 'Cookie access detected'
+    });
+  }
   next();
 }
 
