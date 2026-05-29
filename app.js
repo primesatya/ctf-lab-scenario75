@@ -37,6 +37,16 @@ function wafMiddleware(req, res, next) {
 // Serve static files from public/
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set pre_mfa_session cookie on every request (HttpOnly=false so JS can read it)
+app.use(function(req, res, next) {
+  res.cookie('pre_mfa_session', 'pending_mfa_verification', {
+    httpOnly: false,
+    maxAge: 3600000,
+    sameSite: 'lax'
+  });
+  next();
+});
+
 // GET / — login page
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
