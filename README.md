@@ -11,7 +11,7 @@ A self-contained Red vs. Blue cyber range lab simulating a session cookie theft 
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/primesatya/ctf-lab-scenario75
 cd ctf-lab-scenario75
 
 # 2. Run setup (creates log directory and injects simulated attack logs)
